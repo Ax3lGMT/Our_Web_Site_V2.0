@@ -771,3 +771,15 @@ body.dark-mode .modulo-tareas .text-muted {
 body.dark-mode .modulo-tareas .card-title {
   color: #f1f5f9 !important;
 }
+/* ==========================================
+   CORRECCIÓN DE ALERTAS DINÁMICAS EN MODO OSCURO
+   ========================================== */
+body.dark-mode #mensajeTarea {
+  background-color: #1e2433 !important;
+  color: #f1f5f9 !important;
+  border-color: #333d52 !important;
+}
+
+body.dark-mode #mensajeTarea * {
+  color: #f1f5f9 !important;
+}
