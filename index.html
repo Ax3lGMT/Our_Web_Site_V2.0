@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Aprende a organizar tu tiempo como estudiante: qué es, por qué importa y cómo empezar con tips y aplicaciones.">
+
+    <title>Organízate — Inicio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="stylesp.css">
+
+</head>
+
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="inicio">
+        
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">⚡</span> Organízate
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Mostrar menú">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link active" href="index.html" aria-current="page">
+                        Inicio
+                    </a>
+
+                    <a class="nav-link" href="introduccion.html">
+                        Introducción
+                    </a>
+
+                    <a class="nav-link" href="tips.html">
+                        Tips
+                    </a>
+
+                    <a class="nav-link" href="aplicaciones02.html">
+                        Aplicaciones
+                    </a>
+                    
+                    <button id="btn-theme" class="btn btn-outline-secondary btn-sm ms-2" type="button" aria-label="Cambiar tema">
+                        🌙 Modo Oscuro
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <div class="wrap">
+
+        <div class="washi-tape"></div>
+
+        <!-- DISTRIBUCIÓN EN DOS COLUMNAS (CONTENIDO A LA IZQUIERDA, POMODORO A LA DERECHA) -->
+        <div class="row align-items-start g-4">
+            
+           <!-- SECCIÓN DE BIENVENIDA / HERO (Centrada en toda la página) -->
+        <section class="hero-aplicaciones position-relative text-center p-0 mb-4 mx-auto" style="max-width: 700px;">
+
+            <div class="d-flex justify-content-center">
+                <span class="sticker-badge">✨ Guía Estudiantil</span>
+            </div>
+
+            <h1>
+                Organízate <em>con calma</em>
+            </h1>
+
+            <p class="subtitulo">
+                Tu guía para organizar el tiempo como estudiante
+            </p>
+
+            <p class="intro-breve">
+                Aprende a planear mejor tus actividades, cumplir tus
+                responsabilidades y darle espacio también a tu descanso.
+            </p>
+
+        </section>
+
+        <!-- WIDGET POMODORO FLOTANTE (Se mantiene flotando en la esquina sin estorbar) -->
+        <div id="draggable-pomodoro" class="card p-3 shadow-sm text-center" style="background: var(--paper); border: 2px dashed var(--paper-line); width: 340px; position: fixed; top: 100px; right: 30px; z-index: 1000;">
+            <span class="tab" style="background: var(--tab-plan); color: var(--tab-plan-ink);">⏱️ ENFOQUE (ARRASTRABLE)</span>
+            
+            <!-- Botón inicial pequeño -->
+            <div id="pomodoro-launcher" class="py-2 mt-2">
+                <h4 class="font-space fs-6 mb-2">¿Listo para concentrarte?</h4>
+                <button id="btn-open-pomodoro" class="btn btn-dark btn-sm px-3 py-2 w-100" style="background: var(--ink); font-family: 'Space Grotesk', sans-serif;">
+                    ▶ Activar Pomodoro
+                </button>
+            </div>
+
+            <!-- Reloj, controles y música (Ocultos al inicio, se despliegan al hacer clic) -->
+            <div id="pomodoro-container" class="d-none mt-2">
+                <h3 class="font-space fw-bold mt-2 fs-6">Técnica Pomodoro (25:00)</h3>
+                <p class="text-muted small mb-2">Arrástrame desde aquí y mantén el enfoque.</p>
+                
+                <!-- Pantalla del reloj -->
+                <div class="fw-bold my-2 font-space fs-4" id="pomodoro-clock" style="color: var(--terracota);">
+                    25:00
+                </div>
+
+                <!-- Botones de control del reloj -->
+                <div class="d-flex justify-content-center gap-1 flex-wrap mb-3">
+                    <button id="pomodoro-start" class="btn btn-sm btn-success">Iniciar</button>
+                    <button id="pomodoro-pause" class="btn btn-sm btn-warning">Pausar</button>
+                    <button id="pomodoro-reset" class="btn btn-sm btn-secondary">Reiniciar</button>
+                    <button id="pomodoro-close" class="btn btn-sm btn-outline-danger">Cerrar</button>
+                </div>
+
+                <!-- Módulo de Música Lo-Fi -->
+                <div class="music-player-section pt-2 border-top border-secondary border-opacity-25 text-start">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="small fw-bold" style="font-family: 'Space Grotesk', sans-serif;">🎵 Música de Estudio</span>
+                        <button id="btn-toggle-music" class="btn btn-sm btn-outline-dark py-0 px-2" style="font-size: 11px;">▶ Reproducir Lo-Fi</button>
+                    </div>
+                    
+                    <!-- Reproductor de audio HTML5 nativo -->
+                    <div id="audio-player-container" class="d-none text-center">
+                        <audio id="html5-audio-player" preload="none">
+                            <source src="https://stream.zeno.fm/f3wvbbqmdg8uv" type="audio/aac">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <span class="small text-muted d-block" style="font-size: 10px;">🎶 Transmitiendo Lo-Fi Radio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- TRES BOTONES / TARJETAS INTERACTIVAS -->
+        <nav class="sections mt-2" aria-label="Secciones de la guía">
+
+            <!-- BOTÓN 1: INTRODUCCIÓN -->
+            <a href="introduccion.html" class="card card--plan">
+                <span class="tab">01. BÁSICOS</span>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                </div>
+                <h2>Introducción</h2>
+                <p>Conoce qué es la organización del tiempo y por qué es fundamental para tu vida académica.</p>
+                <span class="enter">Explorar &rarr;</span>
+            </a>
+
+            <!-- BOTÓN 2: TIPS -->
+            <a href="tips.html" class="card card--org">
+                <span class="tab">02. TÁCTICAS</span>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                </div>
+                <h2>Tips</h2>
+                <p>Estrategias y métodos prácticos para estudiar mejor y gestionar tus tareas.</p>
+                <span class="enter">Ver tips &rarr;</span>
+            </a>
+
+            <!-- BOTÓN 3: APLICACIONES -->
+            <a href="aplicaciones.html" class="card card--focus">
+                <span class="tab">03. HERRAMIENTAS</span>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+                </div>
+                <h2>Aplicaciones</h2>
+                <p>Herramientas digitales e interactivas recomendadas para mejorar tu productividad.</p>
+                <span class="enter">Ver apps &rarr;</span>
+            </a>
+
+        </nav>
+
+        <div class="sticky-note">
+            <div class="pin">📌</div>
+            <p>«Organizarse es ganar libertad para disfrutar lo que te gusta.»</p>
+        </div>
+
+        <!-- SECCIÓN MINIJUEGO EXPRESS -->
+        <section class="minijuego-section text-center my-5">
+            <div class="card p-4 mx-auto" style="max-width: 550px; background: #fffdf8; border: 2px dashed var(--paper-line);">
+                <span class="tab">🎮 MINIJUEGO EXPRESS</span>
+                <h3 class="font-space font-bold mt-2">¿Qué tan rápido enfocas tu mente?</h3>
+                <p class="text-muted small">Haz clic solo en las <strong>tareas productivas</strong> y evita las distracciones durante 15 segundos.</p>
+                
+                <div class="d-flex justify-content-around align-items-center mb-3 fw-bold">
+                    <div>⏱️ Tiempo: <span id="game-timer">15</span>s</div>
+                    <div>⭐ Puntos: <span id="game-score">0</span></div>
+                </div>
+
+                <div id="game-area" class="position-relative overflow-hidden my-2" style="height: 220px; background: var(--paper); border-radius: 10px; border: 1px solid var(--paper-line);">
+                    <div id="game-start-msg" class="h-100 d-flex align-items-center justify-content-center text-muted">
+                        ¡Presiona "Iniciar Juego" para comenzar!
+                    </div>
+                </div>
+
+                <button id="btn-start-game" class="btn-volver mt-3 border-0 bg-transparent cursor-pointer">
+                    ▶️ Iniciar Juego
+                </button>
+            </div>
+        </section>
+
+        <footer>
+
+            <div class="container text-center">
+
+                Guía interactiva para estudiantes —
+                Organización del tiempo.<br><br>
+
+                "Hacemos constar que no hemos dado ni recibido ayuda no autorizada durante la realización de esta asignación."
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="scriptp.js"></script>
+
+
+</body>
+
+</html>

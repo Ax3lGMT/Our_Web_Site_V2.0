@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aplicaciones — Organízate</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles02.css">
+
+</head>
+
+
+<body>
+
+    <!-- ==============================
+         BARRA DE NAVEGACIÓN
+         ============================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="inicio">
+
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">⚡</span>
+                Organízate
+            </a>
+
+
+            <!-- BOTÓN MENÚ RESPONSIVE -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Mostrar menú">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- MENÚ -->
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link" href="index.html">
+                        Inicio
+                    </a>
+                     <li class="nav-item">
+          <a class="nav-link" href="introduccion.html">Introducción</a>
+        </li>
+
+                    <a class="nav-link" href="tips.html">
+                        Tips
+                    </a>
+
+                    <a
+                        class="nav-link active"
+                        href="aplicaciones.html"
+                        aria-current="page">
+
+                        Aplicaciones
+
+                    </a>
+
+
+                    <!-- BOTÓN MODO OSCURO -->
+
+                    <button
+                        id="btn-theme"
+                        class="btn btn-outline-secondary btn-sm ms-2"
+                        type="button"
+                        aria-label="Cambiar tema">
+
+                        🌙 Modo Oscuro
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==============================
+         CONTENIDO PRINCIPAL
+         ============================== -->
+
+    <div class="wrap">
+
+        <div class="washi-tape"></div>
+
+
+        <!-- ==============================
+             ENCABEZADO
+             ============================== -->
+
+        <section class="hero-aplicaciones position-relative">
+
+            <span class="sticker-badge">
+                📱 Herramientas Digitales
+            </span>
+
+
+            <h1>
+
+                Aplicaciones para mejorar
+                <br>
+
+                <em class="em--org">
+                    tu organización
+                </em>
+
+            </h1>
+
+
+            <p class="intro-breve">
+
+                Existen diferentes herramientas digitales que pueden ayudarte
+                a organizar tus tareas, planificar tus horarios y aprovechar
+                mejor tu tiempo.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ==============================
+             CONTENIDO
+             ============================== -->
+
+        <main class="mt-4">
+
+
+            <!-- TÍTULO -->
+
+            <div class="text-center mb-5">
+
+                <h2
+                    style="
+                    font-family: 'Space Grotesk', sans-serif;
+                    font-size: 26px;
+                    ">
+
+                    Herramientas recomendadas
+
+                </h2>
+
+
+                <p
+                    style="
+                    color: var(--ink-soft);
+                    font-size: 15px;
+                    ">
+
+                    Estas aplicaciones pueden ayudarte a mantener
+                    tus actividades organizadas.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 TARJETAS DE APLICACIONES
+                 ============================== -->
+
+            <div class="row g-4">
+
+
+                <!-- GOOGLE CALENDAR -->
+
+                <div class="col-12 col-md-6 d-flex">
+
+                    <div class="card card--plan w-100">
+
+                        <span class="tab">
+                            CALENDARIO
+                        </span>
+
+
+                        <div class="recomendacion-icono">
+                            📅
+                        </div>
+
+
+                        <h2>
+                            Google Calendar
+                        </h2>
+
+
+                        <p>
+
+                            Permite organizar eventos, clases, tareas
+                            y actividades mediante un calendario digital
+                            interactivo y sincronizado.
+
+                        </p>
+
+
+                        <div class="card-footer-custom">
+
+                            <a
+                                href="https://calendar.google.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-app-link">
+
+                                Visitar aplicación &rarr;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TODOIST -->
+
+                <div class="col-12 col-md-6 d-flex">
+
+                    <div class="card card--org w-100">
+
+                        <span class="tab">
+                            TAREAS
+                        </span>
+
+
+                        <div class="recomendacion-icono">
+                            ✅
+                        </div>
+
+
+                        <h2>
+                            Todoist
+                        </h2>
+
+
+                        <p>
+
+                            Permite crear listas de tareas detalladas,
+                            establecer fechas límites y organizar
+                            diferentes proyectos o asignaturas.
+
+                        </p>
+
+
+                        <div class="card-footer-custom">
+
+                            <a
+                                href="https://todoist.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-app-link">
+
+                                Visitar aplicación &rarr;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NOTION -->
+
+                <div class="col-12 col-md-6 d-flex">
+
+                    <div class="card card--focus w-100">
+
+                        <span class="tab">
+                            WORKSPACE
+                        </span>
+
+
+                        <div class="recomendacion-icono">
+                            📒
+                        </div>
+
+
+                        <h2>
+                            Notion
+                        </h2>
+
+
+                        <p>
+
+                            Puedes utilizarlo como plantilla o espacio
+                            de trabajo para organizar apuntes, tareas,
+                            proyectos y bases de datos.
+
+                        </p>
+
+
+                        <div class="card-footer-custom">
+
+                            <a
+                                href="https://www.notion.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-app-link">
+
+                                Visitar aplicación &rarr;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOREST -->
+
+                <div class="col-12 col-md-6 d-flex">
+
+                    <div class="card card--org w-100">
+
+                        <span class="tab">
+                            ENFOQUE
+                        </span>
+
+
+                        <div class="recomendacion-icono">
+                            🌱
+                        </div>
+
+
+                        <h2>
+                            Forest
+                        </h2>
+
+
+                        <p>
+
+                            Ayuda a mantener períodos de concentración
+                            mediante la técnica Pomodoro mientras estudias
+                            para evitar distracciones.
+
+                        </p>
+
+
+                        <div class="card-footer-custom">
+
+                            <a
+                                href="https://www.forestapp.cc/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-app-link">
+
+                                Visitar aplicación &rarr;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 NUEVO MÓDULO INTERACTIVO - TIME SMART 2.0
+                 ========================================== -->
+
+            <section
+                id="organizador"
+                class="container my-5 px-0">
+
+
+                <!-- TÍTULO -->
+
+                <div class="text-center mb-4">
+
+                    <span class="sticker-badge">
+                        ✨ TimeSmart 2.0
+                    </span>
+
+
+                    <h2 class="titulo-organizador mt-3">
+
+                        📝 Organiza tu tarea
+
+                    </h2>
+
+
+                    <p class="texto-organizador">
+
+                        Escribe una tarea pendiente y agrégala
+                        a tu lista para organizar mejor tu tiempo.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- CARD BOOTSTRAP -->
+
+                <div class="card shadow-sm modulo-tareas">
+
+                    <div class="card-body">
+
+
+                        <h4 class="card-title">
+
+                            Mi lista de tareas
+
+                        </h4>
+
+
+                        <p class="text-muted">
+
+                            Agrega las actividades que necesitas realizar.
+
+                        </p>
+
+
+
+                        <!-- FORMULARIO -->
+
+                        <div class="row g-2 mt-3">
+
+
+                            <!-- INPUT -->
+
+                            <div class="col-12 col-md-9">
+
+                                <label
+                                    for="tareaInput"
+                                    class="visually-hidden">
+
+                                    Escribe una tarea
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="tareaInput"
+                                    class="form-control"
+                                    placeholder="Ejemplo: Estudiar para el examen"
+                                    maxlength="100"
+                                    autocomplete="off">
+
+                            </div>
+
+
+
+                            <!-- BOTÓN -->
+
+                            <div class="col-12 col-md-3">
+
+                                <button
+                                    type="button"
+                                    id="btnAgregarTarea"
+                                    class="btn btn-success w-100">
+
+                                    ➕ Agregar tarea
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ==================================
+                             MENSAJE DINÁMICO
+                             ================================== -->
+
+                        <div
+                            id="mensajeTarea"
+                            class="alert mt-3 d-none"
+                            role="alert">
+
+                        </div>
+
+
+
+                        <!-- ==================================
+                             LISTA GENERADA CON JAVASCRIPT
+                             ================================== -->
+
+                        <ul
+                            id="listaTareas"
+                            class="list-group mt-3">
+
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==============================
+                 BOTÓN VOLVER
+                 ============================== -->
+
+            <div class="text-center mt-5 mb-5">
+
+                <a
+                    href="index.html"
+                    class="btn-volver">
+
+                    ← Volver al inicio
+
+                </a>
+
+            </div>
+
+
+        </main>
+
+
+
+        <!-- ==============================
+             PIE DE PÁGINA
+             ============================== -->
+
+        <footer>
+
+            <div class="container">
+
+                Guía interactiva para estudiantes —
+                Organización del tiempo.
+
+                <br><br>
+
+                "Hacemos constar que no hemos dado ni recibido
+                ayuda no autorizada durante la realización
+                de esta asignación."
+
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- ==============================
+         BOOTSTRAP JAVASCRIPT
+         ============================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- JAVASCRIPT PROPIO -->
+
+    <script src="script02.js"></script>
+
+
+</body>
+
+</html>
+
