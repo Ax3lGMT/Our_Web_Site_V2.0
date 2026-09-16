@@ -738,3 +738,36 @@ body.dark-mode .hero-aplicaciones p {
         margin-top: 2px;
     }
 }
+/* ==========================================
+   CORRECCIÓN DE MÓDULO DE TAREAS EN MODO OSCURO
+   ========================================== */
+
+/* 1. Fondo oscuro y texto blanco legible para el cuadro de texto (input) */
+body.dark-mode #tareaInput {
+  background-color: #12161f !important;
+  color: #f1f5f9 !important;
+  border-color: #333d52 !important;
+}
+
+/* 2. Color del texto que el usuario escribe dentro del input */
+body.dark-mode #tareaInput::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* 3. Fondo y texto para las tareas agregadas en la lista */
+body.dark-mode .list-group-item,
+body.dark-mode #listaTareas li {
+  background-color: #12161f !important;
+  color: #f1f5f9 !important;
+  border-color: #333d52 !important;
+}
+
+/* 4. Textos de apoyo o subtítulos dentro del módulo de tareas (ej. el texto plomo) */
+body.dark-mode .modulo-tareas .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* 5. Título del módulo de tareas en modo oscuro */
+body.dark-mode .modulo-tareas .card-title {
+  color: #f1f5f9 !important;
+}
