@@ -300,44 +300,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // ==========================================
-// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Versión 2.0 - Robusta)
+// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Versión corregida sin wrapper)
 // ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const btnToggleMusic = document.getElementById('btn-toggle-music');
-    const audioContainer = document.getElementById('audio-player-container');
-    const audioPlayer = document.getElementById('html5-audio-player');
+const btnToggleMusic = document.getElementById('btn-toggle-music');
+const audioContainer = document.getElementById('audio-player-container');
+const audioPlayer = document.getElementById('html5-audio-player');
 
-    let isPlayingMusic = false;
+let isPlayingMusic = false;
 
-    if (btnToggleMusic && audioContainer && audioPlayer) {
-        btnToggleMusic.addEventListener('click', () => {
-            if (!isPlayingMusic) {
-                    audioPlayer.play().then(() => {
-                    audioContainer.classList.remove('d-none');
-                    btnToggleMusic.textContent = '⏸ Pausar Música';
-                    btnToggleMusic.classList.remove('btn-outline-dark');
-                    btnToggleMusic.classList.add('btn-danger');
-                    isPlayingMusic = true;
-                }).catch(error => {
-                    console.log("El navegador bloqueó o retrasó el audio: ", error);
-                    // En lugar de una alerta fastidiosa, avisamos sutilmente en el botón
-                    btnToggleMusic.textContent = '🔄 Inténtalo de nuevo';
-                    setTimeout(() => {
-                        if (!isPlayingMusic) btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
-                    }, 3000);
-                    isPlayingMusic = false;
-                });
-            } else {
-                audioPlayer.pause();
-                audioContainer.classList.add('d-none');
-                btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
-                btnToggleMusic.classList.remove('btn-danger');
-                btnToggleMusic.classList.add('btn-outline-dark');
+if (btnToggleMusic && audioContainer && audioPlayer) {
+    btnToggleMusic.addEventListener('click', () => {
+        if (!isPlayingMusic) {
+            audioPlayer.play().then(() => {
+                audioContainer.classList.remove('d-none');
+                btnToggleMusic.textContent = '⏸ Pausar Música';
+                btnToggleMusic.classList.remove('btn-outline-dark');
+                btnToggleMusic.classList.add('btn-danger');
+                isPlayingMusic = true;
+            }).catch(error => {
+                console.log("El navegador bloqueó la reproducción: ", error);
+                btnToggleMusic.textContent = '🔄 Inténtalo de nuevo';
+                setTimeout(() => {
+                    if (!isPlayingMusic) btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
+                }, 3000);
                 isPlayingMusic = false;
-            }
-        });
-    }
-});
+            });
+        } else {
+            audioPlayer.pause();
+            audioContainer.classList.add('d-none');
+            btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
+            btnToggleMusic.classList.remove('btn-danger');
+            btnToggleMusic.classList.add('btn-outline-dark');
+            isPlayingMusic = false;
+        }
+    });
+}
 // ==========================================
 // ADICIÓN DE SOPORTE TÁCTIL (Sin borrar código previo)
 // ==========================================
