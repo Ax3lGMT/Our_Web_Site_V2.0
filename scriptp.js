@@ -312,10 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnToggleMusic && audioContainer && audioPlayer) {
         btnToggleMusic.addEventListener('click', () => {
             if (!isPlayingMusic) {
-                // Forzamos al reproductor a preparar la conexión con la estación antes de tocar
-                audioPlayer.load();
-                
-                audioPlayer.play().then(() => {
+                    audioPlayer.play().then(() => {
                     audioContainer.classList.remove('d-none');
                     btnToggleMusic.textContent = '⏸ Pausar Música';
                     btnToggleMusic.classList.remove('btn-outline-dark');
