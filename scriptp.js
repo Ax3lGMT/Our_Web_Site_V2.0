@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // ==========================================
-// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Versión 2.0)
+// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Versión 2.0 - Robusta)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const btnToggleMusic = document.getElementById('btn-toggle-music');
@@ -312,7 +312,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnToggleMusic && audioContainer && audioPlayer) {
         btnToggleMusic.addEventListener('click', () => {
             if (!isPlayingMusic) {
+                // Forzamos al reproductor a preparar la conexión con la estación antes de tocar
                 audioPlayer.load();
+                
                 audioPlayer.play().then(() => {
                     audioContainer.classList.remove('d-none');
                     btnToggleMusic.textContent = '⏸ Pausar Música';
@@ -320,8 +322,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     btnToggleMusic.classList.add('btn-danger');
                     isPlayingMusic = true;
                 }).catch(error => {
-                    console.log("Error al reproducir audio: ", error);
-                    alert("No se pudo iniciar la reproducción automáticamente.");
+                    console.log("El navegador bloqueó o retrasó el audio: ", error);
+                    // En lugar de una alerta fastidiosa, avisamos sutilmente en el botón
+                    btnToggleMusic.textContent = '🔄 Inténtalo de nuevo';
+                    setTimeout(() => {
+                        if (!isPlayingMusic) btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
+                    }, 3000);
+                    isPlayingMusic = false;
                 });
             } else {
                 audioPlayer.pause();
