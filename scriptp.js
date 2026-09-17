@@ -300,41 +300,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // ==========================================
-// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Versión corregida sin wrapper)
+// MÓDULO DE REPRODUCTOR DE AUDIO HTML5 (Definitivo)
 // ==========================================
-const btnToggleMusic = document.getElementById('btn-toggle-music');
-const audioContainer = document.getElementById('audio-player-container');
-const audioPlayer = document.getElementById('html5-audio-player');
+window.addEventListener('load', () => {
+    const btnToggleMusic = document.getElementById('btn-toggle-music');
+    const audioContainer = document.getElementById('audio-player-container');
+    const audioPlayer = document.getElementById('html5-audio-player');
 
-let isPlayingMusic = false;
+    let isPlayingMusic = false;
 
-if (btnToggleMusic && audioContainer && audioPlayer) {
-    btnToggleMusic.addEventListener('click', () => {
-        if (!isPlayingMusic) {
-            audioPlayer.play().then(() => {
-                audioContainer.classList.remove('d-none');
-                btnToggleMusic.textContent = '⏸ Pausar Música';
-                btnToggleMusic.classList.remove('btn-outline-dark');
-                btnToggleMusic.classList.add('btn-danger');
-                isPlayingMusic = true;
-            }).catch(error => {
-                console.log("El navegador bloqueó la reproducción: ", error);
-                btnToggleMusic.textContent = '🔄 Inténtalo de nuevo';
-                setTimeout(() => {
-                    if (!isPlayingMusic) btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
-                }, 3000);
+    if (btnToggleMusic && audioContainer && audioPlayer) {
+        btnToggleMusic.addEventListener('click', () => {
+            if (!isPlayingMusic) {
+                audioPlayer.play().then(() => {
+                    audioContainer.classList.remove('d-none');
+                    btnToggleMusic.textContent = '⏸ Pausar Música';
+                    btnToggleMusic.classList.remove('btn-outline-dark');
+                    btnToggleMusic.classList.add('btn-danger');
+                    isPlayingMusic = true;
+                }).catch(error => {
+                    console.log("Error de reproducción: ", error);
+                    btnToggleMusic.textContent = '🔄 Inténtalo de nuevo';
+                    setTimeout(() => {
+                        if (!isPlayingMusic) btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
+                    }, 3000);
+                    isPlayingMusic = false;
+                });
+            } else {
+                audioPlayer.pause();
+                audioContainer.classList.add('d-none');
+                btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
+                btnToggleMusic.classList.remove('btn-danger');
+                btnToggleMusic.classList.add('btn-outline-dark');
                 isPlayingMusic = false;
-            });
-        } else {
-            audioPlayer.pause();
-            audioContainer.classList.add('d-none');
-            btnToggleMusic.textContent = '▶ Reproducir Lo-Fi';
-            btnToggleMusic.classList.remove('btn-danger');
-            btnToggleMusic.classList.add('btn-outline-dark');
-            isPlayingMusic = false;
-        }
-    });
-}
+            }
+        });
+    } else {
+        console.warn("No se encontraron los elementos del reproductor de música en el DOM.");
+    }
+});
 // ==========================================
 // ADICIÓN DE SOPORTE TÁCTIL (Sin borrar código previo)
 // ==========================================
